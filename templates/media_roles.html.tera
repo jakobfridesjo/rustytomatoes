@@ -1,0 +1,79 @@
+{% extends "base" %} 
+{% block header %} 
+{% endblock %} 
+{% block content %}
+<body>
+    <table border="0" align=center valign=top>
+        <tr valign="top">
+            <td width="70%">
+                <table class="media_table">
+                    <thead>
+                        <th>Actor name</th>
+                        <th>Role</th>
+                    </thead>
+                    <tbody>
+                        {% for role in roles %}
+                        <tr>
+                            <th>{{role.actor_first_name}} {{role.actor_last_name}}</th>
+                            <td>{{role.roles}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </td>
+            <td width="30%">
+                <form method="POST" action="/roles/add">
+                    <fieldset>
+                        <legend>
+                            <h4>Add/Update a role:</h4>
+                        </legend>
+                        <p>
+                            <field>Movie name:</field>
+                            <input type="text" name="media_name" />
+                        </p>
+                        <p>
+                            <field>First name:</field>
+                            <input type="text" name="actor_first_name" />
+                        </p>
+                        <p>
+                            <field>Last name:</field>
+                            <input type="text" name="actor_last_name" />
+                        </p>
+                        <p>
+                            <field>Role:</field>
+                            <input type="text" name="roles" />
+                        </p>
+                        <p></p>
+                        <p align=center>
+                            <button>Add/Update</button>
+                        </p>
+                    </fieldset>
+                </form>
+                <form method="POST" action="/roles/delete">
+                <fieldset>
+                    <legend>
+                        <h4>Remove a role:</h4>
+                    </legend>
+                    <p>
+                        <label>Movie name:</label>
+                        <input type="text" name="media_name" />
+                    </p>
+                    <p>
+                        <label>First name:</label>
+                        <input type="text" name="actor_first_name" />
+                    </p>
+                    <p>
+                        <label>Last name:</label>
+                        <input type="text" name="actor_last_name" />
+                    </p>
+                    <p></p>
+                    <p align=center>
+                        <button>Delete</button>
+                    </p>
+                </fieldset>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+{% endblock %}

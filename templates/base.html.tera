@@ -1,0 +1,41 @@
+<!doctype html>
+
+<title>{% block title %}{% endblock %} Rocket test page </title>
+<body>
+<table class="layout_table" align=center border=thin >
+
+<tr><td align=center colspan=2>
+<header>
+  <h1>🍅 Rusty Tomatoes</h1>
+</header>
+</td></tr>
+
+<td width=20% height=100% align=center valign=top>
+<nav>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="favicon" href="/favicon.ico" />
+    <h2>
+    <br></br>
+    <a href="/">Index 🍅</a>
+    <br></br>
+    <br></br>
+    <a href="/media">Movies 🍿</a>
+    <br></br>
+    <br></br>
+    <a href="/actors">Actors ⭐</a>
+    <br></br>
+    <br></br>
+    <a href="/roles">Roles 📜</a>
+    </h2>
+
+</nav>
+</td>
+
+<td  width=80% align=center>
+<section class="content">
+  {% block content %}{% endblock %}
+</section>
+</td>
+
+</table>
+</body>

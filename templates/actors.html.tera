@@ -1,0 +1,73 @@
+{% extends "base" %} 
+{% block header %} 
+{% endblock %} 
+{% block content %}
+<body>
+    <table border="0" align=center valign=top>
+        <tr valign=top>
+            <td width="70%">
+                <table class="media_table">
+                    <thead>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Year</th>
+                    </thead>
+                    <tbody>
+                        {% for actor in actors %}
+                        <tr>
+                            <th>{{actor.actor_first_name}}</th>
+                            <td>{{actor.actor_last_name}}</td>
+                            <td>{{actor.actor_year}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </td>
+            <td width="30%">
+                <form method="POST" action="/actors/add">
+                    <fieldset>
+                        <legend>
+                            <h4>Add/Update an actor:</h4>
+                        </legend>
+                        <p>
+                            <field>First name:</field>
+                            <input type="text" name="actor_first_name" />
+                        </p>
+                        <p>
+                            <field>Last name:</field>
+                            <input type="text" name="actor_last_name" />
+                        </p>
+                        <p>
+                            <field>Year:</field>
+                            <input type="number" min="1800" name="actor_year" />
+                        </p>
+                        <p></p>
+                        <p align=center>
+                            <button>Add/Update</button>
+                        </p>
+                    </fieldset>
+                </form>
+                <form method="POST" action="/actors/delete">
+                <fieldset>
+                    <legend>
+                        <h4>Remove an actor:</h4>
+                    </legend>
+                        <p>
+                            <label>First name:</label>
+                            <input type="text" name="actor_first_name" />
+                        </p>
+                        <p>
+                            <label>Last name:</label>
+                            <input type="text" name="actor_last_name" />
+                        </p>
+                        <p></p>
+                        <p align=center>
+                            <button>Delete!</button>
+                        </p>
+                </fieldset>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+{% endblock %}

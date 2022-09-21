@@ -1,0 +1,79 @@
+{% extends "base" %} 
+{% block header %} 
+{% endblock %} 
+{% block content %}
+<body>
+    <table border="0" align=center valign=top>
+        <tr valign="top">
+            <td width="70%">
+                <table class="media_table">
+                    <thead>
+                        <th>Movie name</th>
+                        <th>Genre</th>
+                        <th>Year</th>
+                        <th>Score</th>
+                    </thead>
+                    <tbody>
+                        {% for m in media %}
+                        <tr>
+                            <th>
+                                <a href="/roles/in/{{m.media_name}}">
+                                    {{m.media_name}}
+                                </a>
+                            </th>
+                            <td>{{m.media_genre}}</td>
+                            <td>{{m.media_year}}</td>
+                            <td>{{m.media_score}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </td>
+            <td width="30%">
+                <form method="POST" action="/media/add">
+                    <fieldset>
+                        <legend>
+                            <h4>Add/Update a media:</h4>
+                        </legend>
+                        <p>
+                            <field>Name:</field>
+                            <input type="text" name="media_name" />
+                        </p>
+                        <p>
+                            <field>Genre:</field>
+                            <input type="text" name="media_genre" />
+                        </p>
+                        <p>
+                            <field>Year:</field>
+                            <input type="number" min="1888" name="media_year" />
+                        </p>
+                        <p>
+                            <field>Score:</field>
+                            <input type="number" min="1" max="100" name="media_score" />
+                        </p>
+                        <p></p>
+                        <p align=center>
+                            <button>Add/Update</button>
+                        </p>
+                    </fieldset>
+                </form>
+                <form method="POST" action="/media/delete">
+                <fieldset>
+                    <legend>
+                        <h4>Remove a media:</h4>
+                    </legend>
+                    <p>
+                        <label>Name:</label>
+                        <input type="text" name="media_name" />
+                    </p>
+                    <p></p>
+                    <p align=center>
+                        <button>Delete</button>
+                    </p>
+                </fieldset>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+{% endblock %}

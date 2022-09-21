@@ -1,0 +1,9 @@
+HOW TO LAUNCH
+  1. Install docker, docker-compose and rust stable release
+  2. Run 'docker-compose up' in docker-database folder
+  3. Run 'cargo run' from project root
+  4. Instance will be launched on http://localhost:25565
+  
+INFO:
+  SQL code can be found in docker-database/db/scripts directory
+  and in src/database.rs file
